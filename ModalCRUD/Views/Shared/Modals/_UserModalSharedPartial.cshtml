@@ -1,0 +1,118 @@
+﻿@model ModalCRUD.Models.Employee
+@{
+    // The value of this is assigned in each [HttpGet] method in EmployeesController
+    // (to get a specific UI for each action)
+    //string? httpGetMethod = ViewData["Message"] != null ? ViewData["Message"]!.ToString() : "";
+    string? httpGetMethod = ViewData["Message"]!.ToString();
+}
+
+@*partial modal*@
+<div class="modal fade" id="reusableModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @*modal-header*@
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@httpGetMethod Employee [Views/Shared/Modals/ Folder]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            @*modal-body*@
+            <div class="modal-body">
+                @if (httpGetMethod == "Create")
+                {
+                    <form action="Create">
+                        @*Name*@
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        @*Email*@
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </form>
+                }
+
+                else if (httpGetMethod == "Edit")
+                {
+                    <form action="Edit">
+                        @*Id*@
+                        @*Add this so that the id will not be 0*@
+                        <input type="hidden" asp-for="Id" />
+
+                        @*Name*@
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        @*Email*@
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </form>
+                }
+
+                else if (httpGetMethod == "Details")
+                {
+                    <form>
+                        @*Id*@
+                        <div class="form-group">
+                            <label asp-for="Id">@Model?.Id</label>
+                        </div>
+
+                        @*Name*@
+                        <div class="form-group">
+                            <label asp-for="Name">@Model?.Name</label>
+                        </div>
+
+                        @*Email*@
+                        <div class="form-group">
+                            <label asp-for="Email">@Model?.Email</label>
+                        </div>
+                    </form>
+                }
+
+                else if (httpGetMethod == "Delete")
+                {
+                    <form action="Delete">
+                        @*Id*@
+                        <div class="form-group">
+                            @*this input is needed, so that the value cannot be null*@
+                            <input type="hidden" asp-for="Id" />
+                            <label asp-for="Id">@Model?.Id</label>
+                        </div>
+
+                        @*Name*@
+                        <div class="form-group">
+                            <label asp-for="Name">@Model?.Name</label>
+                        </div>
+
+                        @*Email*@
+                        <div class="form-group">
+                            <label asp-for="Email">@Model?.Email</label>
+                        </div>
+                    </form>
+                }
+            </div>
+
+
+            @*only show the modal's action buttons if it's not in Detail's [HttpGet]*@
+            @if (httpGetMethod != "Details")
+            {
+                @*modal-footer*@
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary data-operation-execute">@httpGetMethod</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ModalCRUD.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employees</h1>
+
+@*the modal(_EmployeeModelPartial) appears in this div*@
+<div id="modal-area"></div>
+
+<button type="button" class="btn btn-primary data-operation" data-target="#reusableModal" data-url="@Url.Action("Create")">Create</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model!)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @*The Action word defined In @Url.Action is found in the controller (EmployeesController)*@
+                    <button type="button" class="btn btn-primary data-operation" data-target="#reusableModal" data-url="@Url.Action($"Edit/{item.Id}")">Edit</button>
+
+                    <button type="button" class="btn btn-primary data-operation" data-target="#reusableModal" data-url="@Url.Action($"Details/{item.Id}")">Details</button>
+
+
+                    <button type="button" class="btn btn-primary data-operation" data-target="#reusableModal" data-url="@Url.Action($"Delete/{item.Id}")">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

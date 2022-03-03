@@ -1,0 +1,11 @@
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\bin\Debug\net6.0\ModalCRUD.DAL.deps.json
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\bin\Debug\net6.0\ModalCRUD.DAL.dll
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\bin\Debug\net6.0\ref\ModalCRUD.DAL.dll
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\bin\Debug\net6.0\ModalCRUD.DAL.pdb
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\obj\Debug\net6.0\ModalCRUD.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\obj\Debug\net6.0\ModalCRUD.DAL.AssemblyInfoInputs.cache
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\obj\Debug\net6.0\ModalCRUD.DAL.AssemblyInfo.cs
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\obj\Debug\net6.0\ModalCRUD.DAL.csproj.CoreCompileInputs.cache
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\obj\Debug\net6.0\ModalCRUD.DAL.dll
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\obj\Debug\net6.0\ref\ModalCRUD.DAL.dll
+D:\Visual Studio\ModalCRUD\ModalCRUD.DAL\obj\Debug\net6.0\ModalCRUD.DAL.pdb
