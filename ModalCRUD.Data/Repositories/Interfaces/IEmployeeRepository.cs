@@ -12,7 +12,7 @@ namespace ModalCRUD.Data.Repositories.Interfaces
         Task<Employee> CreateEmployeeAsync(Employee employee);
         Task DeleteEmployeeAsync(int id);
         Task<IEnumerable<Employee>> GetAllEmployeesAsync();
-        Task<Employee> GetByIdAsync(int id);
+        Task<Employee?> GetByIdAsync(int id);
         Task<Employee> UpdateEmployeeAsync(Employee employee);
 
     }
