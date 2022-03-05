@@ -15,7 +15,12 @@
       "ProjectGuid": "919fd655-f067-4ba2-b932-d926e85dd6b4",
       "DisplayName": "Script Documents",
       "ColorIndex": 1
+    },
+    "0cf9e3f2-5b22-48d6-9410-a4ebd295a39b": {
+      "ProjectGuid": "0cf9e3f2-5b22-48d6-9410-a4ebd295a39b",
+      "DisplayName": "ModalCRUD.DAL",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

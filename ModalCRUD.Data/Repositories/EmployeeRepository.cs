@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModalCRUD.DAL.Repositories.Interfaces
+namespace ModalCRUD.Data.Repositories
 {
-    internal interface IEmployeeRepository
+    public class EmployeeRepository
     {
     }
 }
