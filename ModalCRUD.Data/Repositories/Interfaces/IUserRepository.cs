@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModalCRUD.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,9 @@ namespace ModalCRUD.Data.Repositories.Interfaces
 {
     internal interface IUserRepository
     {
-        //validate user (name and pass)
-        //Task<User> ValidateUserAsync(User user);
-        //getall
-        //create
-        //getbyusername
+        Task<User> CreateUserAsync(User user);
+        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<bool> UsernameExists(string username);
+        Task<User> ValidateUserAsync(User inputUser);
     }
 }
