@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ModalCRUD.Data.Models
 {
-    internal class User
+    public class User
     {
         [Key]
         public int Id { get; set; }
