@@ -27,7 +27,7 @@ $(document).ready(() => {
             // console.log(data);
         });
 
-        /*modalArea.on('click', '.data-operation-execute', function () {
+        modalArea.on('click', '.data-operation-execute', function () {
             // $(this) === the div with the id "modal-area"
             let form = $(this).parents('.modal').find('form');
             let controllerName = window.location.pathname.split("/")[1];
@@ -44,6 +44,6 @@ $(document).ready(() => {
                 // this reloads the PAGE
                 location.reload(true);
             });
-        });*/
+        });
     });
 });
