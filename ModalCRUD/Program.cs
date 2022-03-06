@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using ModalCRUD.Data;
+using ModalCRUD.Data.Contexts;
+using ModalCRUD.Data.Repositories;
+using ModalCRUD.Data.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr"))
 );
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddControllersWithViews();
 //builder.Services.AddSession(options =>

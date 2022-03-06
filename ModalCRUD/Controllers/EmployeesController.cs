@@ -1,52 +1,49 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ModalCRUD.Data;
-using ModalCRUD.Models;
+using ModalCRUD.Data.Repositories.Interfaces;
+using ModalCRUD.Data.Models;
 
 namespace ModalCRUD.Controllers
 {
     public class EmployeesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IEmployeeRepository _context;
 
-        public EmployeesController(ApplicationDbContext context)
+        public EmployeesController(IEmployeeRepository context)
         {
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Employee>? listofEmployees = _context.Employee?.ToList();
-            return View(listofEmployees);
+            return View(await _context.GetAllAsync());
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            Employee employee = new();
+            var employee = new Employee();
 
             ViewData["Message"] = "Create";
             // This passes a new employee to the partial view (modal)
 
             // use this to access a sub folder in Views/Shared/ folders (to organize partial views)
-            return PartialView("/Views/Shared/Modals/_UserModalSharedPartial.cshtml", employee);
+            return PartialView("_EmployeeModalPartial", employee);
 
             // use this if the partial view is just in /Views/Shared/ folder, or in the /Views/ControllerName
             // return PartialView("_UserModalPartial", employee); 
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public async Task<IActionResult> Create(Employee employee)
         {
-            _context.Employee?.Add(employee);
-            _context.SaveChanges();
-            // This passes a new employee to the partial view (modal)
+            await _context.CreateAsync(employee);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            Employee? employee = _context.Employee?.Where(employeeToEdit => employeeToEdit.Id == id).FirstOrDefault();
+            var employee = await _context.GetByIdAsync(id);
 
             ViewData["Message"] = "Edit";
             // This passes a new employee to the partial view (modal)
@@ -55,20 +52,17 @@ namespace ModalCRUD.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Employee employee)
+        public async Task<IActionResult> Edit(Employee employee)
         {
-            _context.Employee?.Update(employee);
-            _context.SaveChanges();
-
-            // This passes a new employee to the partial view (modal)
+            await _context.UpdateAsync(employee);
             return RedirectToAction("Index");
         }
 
 
         [HttpGet]
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            Employee? employee = _context.Employee?.Where(e => e.Id == id).FirstOrDefault();
+            var employee = await _context.GetByIdAsync(id);
 
             ViewData["Message"] = "Details";
             // This passes a new employee to the partial view (modal)
@@ -77,9 +71,9 @@ namespace ModalCRUD.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            Employee? employee = _context.Employee?.Where(employeeToEdit => employeeToEdit.Id == id).FirstOrDefault();
+            var employee = await _context.GetByIdAsync(id);
 
             ViewData["Message"] = "Delete";
 
@@ -88,13 +82,9 @@ namespace ModalCRUD.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Employee emp)
+        public async Task<IActionResult> Delete(Employee employee)
         {
-            Employee? employee = _context.Employee?.Where(e => e.Id == emp.Id).FirstOrDefault();
-            _context.Employee?.Remove(employee!);
-            _context.SaveChanges();
-
-            // This passes a new employee to the partial view (modal)
+            await _context.DeleteAsync(employee.Id);
             return RedirectToAction("Index");
         }
     }

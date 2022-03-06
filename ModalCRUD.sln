@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD", "ModalCRUD\ModalCRUD.csproj", "{D8812DEA-D07C-4088-9191-A439394D5B6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModalCRUD.DAL", "ModalCRUD.DAL\ModalCRUD.DAL.csproj", "{0CF9E3F2-5B22-48D6-9410-A4EBD295A39B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModalCRUD.Data", "ModalCRUD.Data\ModalCRUD.Data.csproj", "{DE46F40C-E928-43D3-A330-5349F7079134}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{D8812DEA-D07C-4088-9191-A439394D5B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8812DEA-D07C-4088-9191-A439394D5B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8812DEA-D07C-4088-9191-A439394D5B6E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0CF9E3F2-5B22-48D6-9410-A4EBD295A39B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CF9E3F2-5B22-48D6-9410-A4EBD295A39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CF9E3F2-5B22-48D6-9410-A4EBD295A39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CF9E3F2-5B22-48D6-9410-A4EBD295A39B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE46F40C-E928-43D3-A330-5349F7079134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE46F40C-E928-43D3-A330-5349F7079134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE46F40C-E928-43D3-A330-5349F7079134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE46F40C-E928-43D3-A330-5349F7079134}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

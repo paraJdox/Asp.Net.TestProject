@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModalCRUD.Data;
-using ModalCRUD.Models;
+using ModalCRUD.Data.Models;
+using ModalCRUD.Data.Repositories.Interfaces;
 using System.Diagnostics;
 
 namespace ModalCRUD.Controllers
 {
     public class UserController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IUserRepository _context;
 
-        public UserController(ApplicationDbContext context)
+        public UserController(IUserRepository context)
         {
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_context.User.ToList());
+            return View(await _context.GetAllAsync());
         }
 
         [HttpGet]
@@ -27,16 +28,15 @@ namespace ModalCRUD.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignUp(User user)
+        public async Task<IActionResult> SignUp(User user)
         {
-            if (_context.User.Any(u => u.Username == user.Username))
+            if (await _context.UsernameExists(user.Username))
             {
                 ViewBag.Notification = "This account already exists...";
                 return View();
             }
 
-            _context.User.Add(user);
-            _context.SaveChanges();
+            await _context.CreateAsync(user);
 
             HttpContext.Session.SetString("Id", user.Id.ToString());
             HttpContext.Session.SetString("Username", user.Username);
@@ -64,9 +64,9 @@ namespace ModalCRUD.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(User user)
+        public async Task<IActionResult> Login(User user)
         {
-            var validateUser = _context.User.Where(u => u.Username.Equals(user.Username) && u.Password.Equals(user.Password)).FirstOrDefault();
+            var validateUser = await _context.ValidateUserAsync(user);
 
             if (validateUser == null)
             {
