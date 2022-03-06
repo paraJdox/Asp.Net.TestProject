@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ModalCRUD.Data.Repositories.Interfaces
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
-        Task<User> CreateUserAsync(User user);
-        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<User> CreateAsync(User user);
+        Task<IEnumerable<User>> GetAllAsync();
         Task<bool> UsernameExists(string username);
         Task<User> ValidateUserAsync(User inputUser);
     }

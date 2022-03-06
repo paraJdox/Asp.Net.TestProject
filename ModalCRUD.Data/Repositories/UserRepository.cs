@@ -19,14 +19,14 @@ namespace ModalCRUD.Data.Repositories
             _context = context;
         }
 
-        public async Task<User> CreateUserAsync(User user)
+        public async Task<User> CreateAsync(User user)
         {
             _context.User?.Add(user);
             await _context.SaveChangesAsync();
             return user;
         }
 
-        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _context.User.ToListAsync();
         }
