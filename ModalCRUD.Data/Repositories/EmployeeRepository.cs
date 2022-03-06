@@ -19,21 +19,21 @@ namespace ModalCRUD.Data.Repositories
             _context = context;
         }
 
-        public async Task<Employee> CreateEmployeeAsync(Employee employee)
+        public async Task<Employee> CreateAsync(Employee employee)
         {
             _context.Employee?.Add(employee);
             await _context.SaveChangesAsync();
             return employee;
         }
 
-        public async Task DeleteEmployeeAsync(int id)
+        public async Task DeleteAsync(int id)
         {
             Employee? employee = _context.Employee?.Where(e => e.Id == id).FirstOrDefault();
             _context.Employee?.Remove(employee!);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Employee>> GetAllEmployeesAsync()
+        public async Task<IEnumerable<Employee>> GetAllAsync()
         {
             return await _context.Employee.ToListAsync();
         }
@@ -43,7 +43,7 @@ namespace ModalCRUD.Data.Repositories
             return await _context.Employee.FindAsync(id);
         }
 
-        public async Task<Employee> UpdateEmployeeAsync(Employee employee)
+        public async Task<Employee> UpdateAsync(Employee employee)
         {
             _context.Employee?.Update(employee);
             await _context.SaveChangesAsync();

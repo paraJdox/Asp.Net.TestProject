@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ModalCRUD.Data.Repositories.Interfaces
 {
-    internal interface IEmployeeRepository
+    public interface IEmployeeRepository
     {
-        Task<Employee> CreateEmployeeAsync(Employee employee);
-        Task DeleteEmployeeAsync(int id);
-        Task<IEnumerable<Employee>> GetAllEmployeesAsync();
+        Task<Employee> CreateAsync(Employee employee);
+        Task DeleteAsync(int id);
+        Task<IEnumerable<Employee>> GetAllAsync();
         Task<Employee?> GetByIdAsync(int id);
-        Task<Employee> UpdateEmployeeAsync(Employee employee);
+        Task<Employee> UpdateAsync(Employee employee);
 
     }
 }
