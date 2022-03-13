@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ModalCRUD.Data.Repositories.Interfaces;
-using ModalCRUD.Data.Models;
+using ModalCRUD.Core.Data.Entities;
+using ModalCRUD.Core.Data.Repositories;
 
 namespace ModalCRUD.Controllers
 {
