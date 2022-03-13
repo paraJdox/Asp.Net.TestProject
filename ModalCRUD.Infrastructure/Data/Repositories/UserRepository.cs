@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ModalCRUD.Data.Contexts;
-using ModalCRUD.Data.Models;
-using ModalCRUD.Data.Repositories.Interfaces;
+using ModalCRUD.Core.Data.Entities;
+using ModalCRUD.Core.Data.Repositories;
+using ModalCRUD.Infrastructure.Data.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModalCRUD.Data.Repositories
+namespace ModalCRUD.Infrastructure.Data.Repositories
 {
     public class UserRepository : IUserRepository
     {

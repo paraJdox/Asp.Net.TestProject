@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModalCRUD.Data.Models
+namespace ModalCRUD.Core.Data.Entities
 {
     public class User
     {

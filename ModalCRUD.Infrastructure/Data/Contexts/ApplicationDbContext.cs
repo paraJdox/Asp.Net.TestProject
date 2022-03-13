@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ModalCRUD.Data.Models;
+using ModalCRUD.Core.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModalCRUD.Data.Contexts
+namespace ModalCRUD.Infrastructure.Data.Contexts
 {
     public class ApplicationDbContext : DbContext
     {

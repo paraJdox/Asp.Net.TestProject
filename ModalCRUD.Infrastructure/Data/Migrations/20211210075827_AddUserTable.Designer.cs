@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ModalCRUD.Data.Contexts;
+using ModalCRUD.Infrastructure.Data.Contexts;
 
 #nullable disable
 
-namespace ModalCRUD.Data.Migrations
+namespace ModalCRUD.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20211210075827_AddUserTable")]

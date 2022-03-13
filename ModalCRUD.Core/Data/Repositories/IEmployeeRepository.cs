@@ -1,11 +1,11 @@
-﻿using ModalCRUD.Data.Models;
+﻿using ModalCRUD.Core.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModalCRUD.Data.Repositories.Interfaces
+namespace ModalCRUD.Core.Data.Repositories
 {
     public interface IEmployeeRepository
     {
@@ -14,6 +14,5 @@ namespace ModalCRUD.Data.Repositories.Interfaces
         Task<IEnumerable<Employee>> GetAllAsync();
         Task<Employee?> GetByIdAsync(int id);
         Task<Employee> UpdateAsync(Employee employee);
-
     }
 }
