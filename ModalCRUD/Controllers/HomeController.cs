@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModalCRUD.ViewModels;
 using System.Diagnostics;
 
 namespace ModalCRUD.Controllers

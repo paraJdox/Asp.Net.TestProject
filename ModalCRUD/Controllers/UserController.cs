@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModalCRUD.Core.Data.Entities;
 using ModalCRUD.Core.Data.Repositories;
+using ModalCRUD.ViewModels;
 using System.Diagnostics;
 
 namespace ModalCRUD.Controllers
