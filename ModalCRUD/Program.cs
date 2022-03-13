@@ -1,8 +1,8 @@
-using ModalCRUD.Infrastructure; // the only usage for the Infrastructure project here is for dependency injection
+using ModalCRUD.Infrastructure; // the ONLY usage for the Infrastructure Layer is for dependency injection, and shouldn't be used anywhere else in the Web Layer
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the dependency injetion container.
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();

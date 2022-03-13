@@ -8,16 +8,16 @@ namespace ModalCRUD.Controllers
 {
     public class UserController : Controller
     {
-        private readonly IUserRepository _context;
+        private readonly IUserRepository _userRepository;
 
-        public UserController(IUserRepository context)
+        public UserController(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.GetAllAsync());
+            return View(await _userRepository.GetAllAsync());
         }
 
         [HttpGet]
@@ -30,13 +30,13 @@ namespace ModalCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SignUp(User user)
         {
-            if (await _context.UsernameExists(user.Username))
+            if (await _userRepository.UsernameExists(user.Username))
             {
                 ViewBag.Notification = "This account already exists...";
                 return View();
             }
 
-            await _context.CreateAsync(user);
+            await _userRepository.CreateAsync(user);
 
             HttpContext.Session.SetString("Id", user.Id.ToString());
             HttpContext.Session.SetString("Username", user.Username);
@@ -66,7 +66,7 @@ namespace ModalCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(User user)
         {
-            var validateUser = await _context.ValidateUserAsync(user);
+            var validateUser = await _userRepository.ValidateUserAsync(user);
 
             if (validateUser == null)
             {
