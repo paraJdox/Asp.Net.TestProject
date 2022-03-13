@@ -1,25 +1,10 @@
-using Microsoft.EntityFrameworkCore;
-using ModalCRUD.Data.Contexts;
-using ModalCRUD.Data.Repositories;
-using ModalCRUD.Data.Repositories.Interfaces;
+using ModalCRUD.Infrastructure; // the only usage for the Infrastructure project here is for dependency injection
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr"))
-);
-
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllersWithViews();
-//builder.Services.AddSession(options =>
-//{
-//    options.Cookie.Name = "ModalCRUD 123";
-//    options.Cookie.HttpOnly = true;
-//    options.Cookie.IsEssential = true;
-//});
 builder.Services.AddSession();
 
 var app = builder.Build();

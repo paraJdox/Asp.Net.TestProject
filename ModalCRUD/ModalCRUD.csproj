@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModalCRUD.Data\ModalCRUD.Data.csproj" />
+    <ProjectReference Include="..\ModalCRUD.Core\ModalCRUD.Core.csproj" />
+    <ProjectReference Include="..\ModalCRUD.Infrastructure\ModalCRUD.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
