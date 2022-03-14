@@ -21,14 +21,14 @@ namespace ModalCRUD.Infrastructure.Data.Repositories
 
         public async Task<Employee> CreateAsync(Employee employee)
         {
-            _context.Employee?.Add(employee);
+            await _context.Employee.AddAsync(employee);
             await _context.SaveChangesAsync();
             return employee;
         }
 
         public async Task DeleteAsync(int id)
         {
-            Employee? employee = _context.Employee?.Where(e => e.Id == id).FirstOrDefault();
+            var employee = await GetByIdAsync(id);
             _context.Employee?.Remove(employee!);
             await _context.SaveChangesAsync();
         }
