@@ -31,6 +31,11 @@ namespace ModalCRUD.Infrastructure.Data.Repositories
             return await _context.User.ToListAsync();
         }
 
+        public async Task<User?> GetByIdAsync(int id)
+        {
+            return await _context.User.FindAsync(id);
+        }
+
         public async Task<bool> UsernameExists(string username)
         {
             return await Task.FromResult(_context.User.Any(u => u.Username == username));

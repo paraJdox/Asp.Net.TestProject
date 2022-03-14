@@ -11,6 +11,7 @@ namespace ModalCRUD.Core.Data.Repositories
     {
         Task<User> CreateAsync(User user);
         Task<IEnumerable<User>> GetAllAsync();
+        Task<User?> GetByIdAsync(int id);
         Task<bool> UsernameExists(string username);
         Task<User> ValidateUserAsync(User inputUser);
     }
