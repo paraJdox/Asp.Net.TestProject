@@ -21,7 +21,7 @@ namespace ModalCRUD.Infrastructure.Data.Repositories
 
         public async Task<Employee> CreateAsync(Employee employee)
         {
-            _context.Employee?.Add(employee);
+            await _context.Employee.AddAsync(employee);
             await _context.SaveChangesAsync();
             return employee;
         }
