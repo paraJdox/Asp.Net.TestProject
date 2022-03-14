@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD.Web", "ModalCRUD\ModalCRUD.Web.csproj", "{D8812DEA-D07C-4088-9191-A439394D5B6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD.Web", "ModalCRUD.Web\ModalCRUD.Web.csproj", "{D8812DEA-D07C-4088-9191-A439394D5B6E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD.Core", "ModalCRUD.Core\ModalCRUD.Core.csproj", "{88FD2A06-FE36-4985-983C-A62D1D930FA3}"
 EndProject

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ModalCRUD.Infrastructure.Data.Repositories
 {
-    public class EmployeeRepository : IEmployeeRepository
+    internal class EmployeeRepository : IEmployeeRepository
     {
         private readonly ApplicationDbContext _context;
 
