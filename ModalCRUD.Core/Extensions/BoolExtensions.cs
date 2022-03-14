@@ -8,9 +8,9 @@ namespace ModalCRUD.Core.Extensions
 {
     public static class BoolExtensions
     {
-        public static bool VerifyHash(this string currentUserPassword, string hashedPasswordFromDb)
+        public static bool IsEqualToThisHash(this string passwordInput, string hashedPassword)
         {
-            return BCrypt.Net.BCrypt.Verify(currentUserPassword, hashedPasswordFromDb);
+            return BCrypt.Net.BCrypt.Verify(passwordInput, hashedPassword);
         }
     }
 }
