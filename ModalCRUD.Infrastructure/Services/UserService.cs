@@ -20,9 +20,11 @@ namespace ModalCRUD.Infrastructure.Services
             _userRepository = userRepository;
         }
 
-        public Task<User> SignUp(User user)
+        public async Task<User> SignUp(User user)
         {
-            throw new NotImplementedException();
+            if (await UsernameExists(user.Username)) { return null!; }
+
+            return await _userRepository.CreateAsync(user);
         }
 
         public async Task<bool> UsernameExists(string username)
