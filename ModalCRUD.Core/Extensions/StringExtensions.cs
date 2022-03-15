@@ -13,9 +13,9 @@ namespace ModalCRUD.Core.Extensions
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
-        public static bool IsEqualToThisHash(this string passwordInput, string hashedPassword)
+        public static bool IsEqualToThisHash(this string passwordInput, string hashedPasswordFromDb)
         {
-            return BCrypt.Net.BCrypt.Verify(passwordInput, hashedPassword);
+            return BCrypt.Net.BCrypt.Verify(passwordInput, hashedPasswordFromDb);
         }
     }
 }
