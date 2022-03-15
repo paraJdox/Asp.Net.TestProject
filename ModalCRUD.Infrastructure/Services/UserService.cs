@@ -20,7 +20,7 @@ namespace ModalCRUD.Infrastructure.Services
             _userRepository = userRepository;
         }
 
-        public async Task<User> SignUp(User inputUser)
+        public async Task<User> SignUpAsync(User inputUser)
         {
             var user = await _userRepository.GetByUsernameAsync(inputUser.Username);
             bool userExists = user != null;
@@ -31,7 +31,7 @@ namespace ModalCRUD.Infrastructure.Services
 
         }
 
-        public async Task<bool> ValidateUser(User inputUser)
+        public async Task<bool> ValidateUserAsync(User inputUser)
         {
             var user = await _userRepository.GetByUsernameAsync(inputUser.Username); // User from Db
 
