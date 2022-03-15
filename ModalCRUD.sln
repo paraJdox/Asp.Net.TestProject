@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD.Web", "ModalCRUD.Web\ModalCRUD.Web.csproj", "{D8812DEA-D07C-4088-9191-A439394D5B6E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD.Core", "ModalCRUD.Core\ModalCRUD.Core.csproj", "{88FD2A06-FE36-4985-983C-A62D1D930FA3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD.Infrastructure", "ModalCRUD.Infrastructure\ModalCRUD.Infrastructure.csproj", "{EF9DEB24-D75D-4197-A1B5-8622D23D4C24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModalCRUD.Client.Web", "ModalCRUD.Client.Web\ModalCRUD.Client.Web.csproj", "{B07BEB7C-A68A-4988-ADD8-F52E4CE87E6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D8812DEA-D07C-4088-9191-A439394D5B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8812DEA-D07C-4088-9191-A439394D5B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8812DEA-D07C-4088-9191-A439394D5B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8812DEA-D07C-4088-9191-A439394D5B6E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88FD2A06-FE36-4985-983C-A62D1D930FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88FD2A06-FE36-4985-983C-A62D1D930FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88FD2A06-FE36-4985-983C-A62D1D930FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{EF9DEB24-D75D-4197-A1B5-8622D23D4C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF9DEB24-D75D-4197-A1B5-8622D23D4C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF9DEB24-D75D-4197-A1B5-8622D23D4C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B07BEB7C-A68A-4988-ADD8-F52E4CE87E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B07BEB7C-A68A-4988-ADD8-F52E4CE87E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B07BEB7C-A68A-4988-ADD8-F52E4CE87E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B07BEB7C-A68A-4988-ADD8-F52E4CE87E6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
