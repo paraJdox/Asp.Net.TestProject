@@ -1,4 +1,5 @@
-﻿using ModalCRUD.Core.Data.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ModalCRUD.Core.Data.Entities;
 using ModalCRUD.Core.Data.Repositories;
 using ModalCRUD.Core.Extensions;
 using ModalCRUD.Core.Services;
@@ -24,12 +25,21 @@ namespace ModalCRUD.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public async Task<bool> ValidateUser(User user)
+
+
+        public async Task<bool> ValidateUser(User inputUser)
         {
-            if (await _userRepository.UsernameExists(user.Username) && user.Password.IsEqualToThisHash(user.Password))
-            {
-                return true;
-            }
+
+            //var userFromDb = await _userRepository.GetByIdAsync(inputUser.Id);
+
+            //if (userFromDb == null) { return false; }
+
+            //if (await _userRepository.UsernameExists(inputUser.Username) &&
+            //    inputUser.Password.IsEqualToThisHash(userFromDb!.Password))
+            //{
+            //    return true;
+            //}
+
             return false;
         }
     }

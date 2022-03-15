@@ -10,6 +10,6 @@ namespace ModalCRUD.Core.Services
     public interface IUserService
     {
         Task<User> SignUp(User user);
-        Task<bool> ValidateUser(User user);
+        Task<bool> ValidateUser(User inputUser);
     }
 }
