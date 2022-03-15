@@ -1,4 +1,5 @@
-﻿using ModalCRUD.Core.Data.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ModalCRUD.Core.Data.Entities;
 using ModalCRUD.Core.Data.Repositories;
 using ModalCRUD.Core.Extensions;
 using ModalCRUD.Core.Services;
@@ -22,6 +23,13 @@ namespace ModalCRUD.Infrastructure.Services
         public Task<User> SignUp(User user)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> UsernameExists(string username)
+        {
+            var user = await _userRepository.GetByUsernameAsync(username);
+
+            return await Task.FromResult(user != null);
         }
 
         public async Task<bool> ValidateUser(User inputUser)
