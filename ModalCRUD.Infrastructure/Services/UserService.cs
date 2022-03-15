@@ -28,7 +28,6 @@ namespace ModalCRUD.Infrastructure.Services
             if (userExists) { return null!; }
 
             return await _userRepository.CreateAsync(inputUser);
-
         }
 
         public async Task<bool> ValidateUserAsync(User inputUser)

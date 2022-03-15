@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ModalCRUD.Core.Data.Entities;
 using ModalCRUD.Core.Data.Repositories;
+using ModalCRUD.Core.Extensions;
 using ModalCRUD.Infrastructure.Data.Contexts;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,11 @@ namespace ModalCRUD.Infrastructure.Data.Repositories
 
         public async Task<User> CreateAsync(User user)
         {
-            _context.User?.Add(user);
+            if (user == null) { return null!; }
+
+            user.Password = user.Password.Encrypt();
+            _context.User.Add(user);
+
             await _context.SaveChangesAsync();
             return user;
         }
