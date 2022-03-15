@@ -40,19 +40,5 @@ namespace ModalCRUD.Infrastructure.Data.Repositories
         {
             return await _context.User.Where(u => u.Username.Equals(username)).FirstOrDefaultAsync();
         }
-
-        public async Task<bool> UsernameExists(string username)
-        {
-            return await Task.FromResult(_context.User.Any(u => u.Username == username));
-        }
-
-        public async Task<User> ValidateUserAsync(User inputUser)
-        {
-            var validUser = await _context.User.Where(u => u.Username.Equals(inputUser.Username)
-                                                        && u.Password.Equals(inputUser.Password)).FirstOrDefaultAsync();
-
-            return validUser ?? inputUser;
-
-        }
     }
 }
