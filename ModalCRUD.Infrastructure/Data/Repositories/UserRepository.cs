@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ModalCRUD.Core.Data.Entities;
 using ModalCRUD.Core.Data.Repositories;
+using ModalCRUD.Core.Extensions;
 using ModalCRUD.Infrastructure.Data.Contexts;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,11 @@ namespace ModalCRUD.Infrastructure.Data.Repositories
 
         public async Task<User> CreateAsync(User user)
         {
-            _context.User?.Add(user);
+            if (user == null) { return null!; }
+
+            user.Password = user.Password.Encrypt();
+            _context.User.Add(user);
+
             await _context.SaveChangesAsync();
             return user;
         }
@@ -31,18 +36,14 @@ namespace ModalCRUD.Infrastructure.Data.Repositories
             return await _context.User.ToListAsync();
         }
 
-        public async Task<bool> UsernameExists(string username)
+        public async Task<User?> GetByIdAsync(int id)
         {
-            return await Task.FromResult(_context.User.Any(u => u.Username == username));
+            return await _context.User.FindAsync(id);
         }
 
-        public async Task<User> ValidateUserAsync(User inputUser)
+        public async Task<User?> GetByUsernameAsync(string username)
         {
-            var validUser = await _context.User.Where(u => u.Username.Equals(inputUser.Username)
-                                                        && u.Password.Equals(inputUser.Password)).FirstOrDefaultAsync();
-
-            return validUser ?? inputUser;
-
+            return await _context.User.Where(u => u.Username.Equals(username)).FirstOrDefaultAsync();
         }
     }
 }
