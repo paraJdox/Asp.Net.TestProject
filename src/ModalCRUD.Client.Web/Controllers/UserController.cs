@@ -33,7 +33,9 @@ namespace ModalCRUD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SignUp(User user)
         {
-            if (await _userService.SignUpAsync(user) == null)
+            bool userCanBeSignedUp = await _userService.TrySignUpAsync(user);
+
+            if (!userCanBeSignedUp)
             {
                 ViewBag.Notification = "This account already exists...";
                 return View();

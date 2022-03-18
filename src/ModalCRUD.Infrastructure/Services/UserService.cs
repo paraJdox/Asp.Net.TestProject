@@ -20,20 +20,19 @@ namespace ModalCRUD.Infrastructure.Services
             _userRepository = userRepository;
         }
 
-        public async Task<User> SignUpAsync(User inputUser)
+        public async Task<bool> TrySignUpAsync(User inputUser)
         {
-            var user = await _userRepository.GetByUsernameAsync(inputUser.Username);
-            bool userExists = user != null;
+            bool userExists = await _userRepository.GetByUsernameAsync(inputUser.Username) != null;
+            if (userExists) { return false; }
 
-            if (userExists) { return null!; }
-
-            return await _userRepository.CreateAsync(inputUser);
+            // a user should have a UNIQUE username in order to be signed up
+            await _userRepository.CreateAsync(inputUser);
+            return true;
         }
 
         public async Task<bool> ValidateUserAsync(User inputUser)
         {
             var user = await _userRepository.GetByUsernameAsync(inputUser.Username); // User from Db
-
             if (user == null) { return false; }
 
             var userHasValidCredentials = inputUser.Username.Equals(user.Username) &&
